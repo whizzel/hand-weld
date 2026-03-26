@@ -6,7 +6,7 @@ let isDrawing = false;
 let wasDrawing = false;
 
 export function updateDrawingState(landmarks: Landmark[]): DrawingState {
-  wasDrawing = isDrawing; // Store previous state
+  wasDrawing = isDrawing;
   
   if (shouldDraw(landmarks)) {
     drawFrames++;

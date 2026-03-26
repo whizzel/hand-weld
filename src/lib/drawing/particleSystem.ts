@@ -9,7 +9,7 @@ function getColor(lifeRatio: number) {
   return `rgba(255,50,0,${lifeRatio})`; // red fade
 }
 
-// 🔥 Create Sparks at writing position
+
 export function createSpark(x: number, y: number) {
   for (let i = 0; i < 15; i++) {
     const angle = Math.random() * Math.PI * 2;
