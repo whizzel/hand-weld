@@ -23,7 +23,7 @@ export function shouldDraw(landmarks: Landmark[]): boolean {
   const middleClosed = middleTip.y > middlePip.y;
   const ringClosed = ringTip.y > ringPip.y;
   const pinkyClosed = pinkyTip.y > pinkyPip.y;
-  const thumbClosed = thumbTip.x < thumbIp.x; // thumb special case
+  const thumbClosed = thumbTip.x < thumbIp.x; // anguthaa special case
 
   const isWriting =
     indexOpen &&

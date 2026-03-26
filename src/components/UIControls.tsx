@@ -7,7 +7,6 @@ export default function UIControls() {
 
   return (
     <>
-      {/* 🗑️ Eraser Button */}
       <button 
         onClick={clearTrail}
         className="absolute bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-3"
@@ -17,9 +16,8 @@ export default function UIControls() {
         </svg>
       </button>
 
-      {/* 🐙 GitHub Button */}
       <a 
-        href="https://github.com/whizzel"
+        href="https://github.com/whizzel/hand-weld"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-8 left-8 bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 flex items-center gap-3"

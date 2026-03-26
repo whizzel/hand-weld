@@ -4,23 +4,24 @@ import { createSpark } from './particleSystem';
 
 let trailSegments: TrailSegment[] = [];
 let currentSegment: Trail[] = [];
+const MAX_TRAIL_SEGMENTS = 50; // Limit memory usage
 
 export function addIndexPoint(x: number, y: number) {
   if (isDrawing) {
-    // If we just started drawing (wasn't drawing before), start a new segment
+
     if (!wasDrawing) {
-      // Save previous segment if it has points
       if (currentSegment.length > 0) {
         trailSegments.push({ points: [...currentSegment] });
+        // Remove oldest segments if limit exceeded
+        if (trailSegments.length > MAX_TRAIL_SEGMENTS) {
+          trailSegments.shift(); // Remove oldest segment
+        }
       }
-      // Start new segment
       currentSegment = [{ x, y }];
     } else {
-      // Continue current segment
       currentSegment.push({ x, y });
     }
     
-    // 🔥 Create sparks at writing position
     createSpark(x, y);
   }
 }

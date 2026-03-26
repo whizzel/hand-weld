@@ -17,7 +17,7 @@ export function updateAndDraw(ctx: CanvasRenderingContext2D) {
       }
       
       ctx.strokeStyle = "rgba(255, 255, 0, 1)"; // Solid yellow
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 6;
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.stroke();
@@ -35,7 +35,7 @@ export function updateAndDraw(ctx: CanvasRenderingContext2D) {
     }
     
     ctx.strokeStyle = "rgba(255, 255, 0, 1)"; // Solid yellow
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 6;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.stroke();
