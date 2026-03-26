@@ -16,14 +16,23 @@ export function shouldDraw(landmarks: Landmark[]): boolean {
 
   const thumbTip = landmarks[4];
   const thumbIp = landmarks[3];
+  const wrist = landmarks[0];
 
-  //jugad of fingers 
+  // Simple and reliable left/right hand detection
+  // In mirrored view, left hand appears on right side and vice versa
+  const isLeftHand = thumbTip.x > pinkyTip.x; // Reversed due to mirroring
+  
+  // Simple finger detection
   const indexOpen = indexTip.y < indexPip.y;
-
   const middleClosed = middleTip.y > middlePip.y;
   const ringClosed = ringTip.y > ringPip.y;
   const pinkyClosed = pinkyTip.y > pinkyPip.y;
-  const thumbClosed = thumbTip.x < thumbIp.x; // anguthaa special case
+  
+  // Simplified thumb detection for mirrored view
+  // Due to mirroring, left hand thumb points left (negative direction)
+  const thumbClosed = isLeftHand ? 
+    thumbTip.x < thumbIp.x :  // Left hand (appears right in mirror)
+    thumbTip.x > thumbIp.x;   // Right hand (appears left in mirror)
 
   const isWriting =
     indexOpen &&

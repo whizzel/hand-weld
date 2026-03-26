@@ -154,10 +154,10 @@ function drawHand(ctx: CanvasRenderingContext2D, landmarks: any, canvas: HTMLCan
   ctx.shadowBlur = 4;
   ctx.shadowColor = "rgba(0, 255, 255, 0.3)";
   
-  // Draw all landmarks as dots
+  // Draw all landmarks as dots with increased radius
   landmarks.forEach((point: any) => {
     ctx.beginPath();
-    ctx.arc(point.x * canvas.width, point.y * canvas.height, 3, 0, 2 * Math.PI);
+    ctx.arc(point.x * canvas.width, point.y * canvas.height, 4, 0, 2 * Math.PI);
     ctx.fillStyle = "cyan";
     ctx.fill();
   });
