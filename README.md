@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hand Weld
+
+A real-time hand tracking application that allows you to draw in the air using hand gestures. Built with Next.js, React, and MediaPipe for advanced hand detection and tracking.
+
+## Features
+
+- **Real-time Hand Tracking**: Uses MediaPipe's advanced hand detection to track hand movements with high accuracy
+- **Air Drawing**: Draw in 3D space using your index finger with visual trail effects
+- **Gesture Recognition**: Detects different hand gestures for drawing controls
+- **Full Screen Canvas**: Maximizes screen real estate for an immersive drawing experience
+- **Responsive Design**: Works on both desktop and mobile devices with orientation support
+- **Visual Feedback**: Cyan-colored hand skeleton with glowing effects and highlighted index finger
+
+## Tech Stack
+
+- **Frontend**: Next.js 16.2.1, React 19.2.4, TypeScript
+- **Styling**: Tailwind CSS 4
+- **Hand Tracking**: MediaPipe Hands & Camera Utils
+- **Canvas Rendering**: HTML5 Canvas with 2D context
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- Modern browser with camera access
+- WebRTC compatible browser (Chrome, Firefox, Safari)
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd hand-weld
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+5. Allow camera access when prompted
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Camera Setup**: The app will automatically request camera permissions
+2. **Hand Detection**: Show your hand to the camera - the system will detect and track it
+3. **Drawing**: Use your index finger to draw in the air - the trail will appear on screen
+4. **Visual Feedback**: 
+   - Cyan lines show hand skeleton
+   - Yellow dot highlights your index finger
+   - Glowing effects enhance the visual experience
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── page.tsx          # Main application page
+│   ├── layout.tsx        # Root layout
+│   └── globals.css       # Global styles
+├── components/
+│   ├── HandTracker.tsx   # Main hand tracking component
+│   ├── Canvas.tsx        # Canvas rendering component
+│   └── UIControls.tsx    # User interface controls
+├── hooks/
+│   └── useHandTracking.ts # Hand tracking logic
+└── lib/
+    ├── draw.ts           # Drawing utilities
+    └── gesture/          # Gesture recognition logic
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Key Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### useHandTracking Hook
+- Initializes MediaPipe hands detection
+- Manages camera setup and video processing
+- Handles real-time hand landmark tracking
+- Provides canvas drawing functionality
+
+### Hand Visualization
+- 21-point hand skeleton tracking
+- Real-time rendering with shadow effects
+- Index finger highlighting for drawing focus
+- Mirrored display for natural interaction
+
+### Drawing System
+- Trail-based drawing following index finger
+- Gesture-based drawing state management
+- Smooth trail rendering with visual effects
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Development
+
+### Available Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+### Configuration
+
+- **Next.js Config**: `next.config.ts`
+- **TypeScript Config**: `tsconfig.json`
+- **Tailwind Config**: `tailwind.config.js`
+- **ESLint Config**: `eslint.config.mjs`
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is private and proprietary.
+
+## Troubleshooting
+
+### Camera Not Working
+- Ensure camera permissions are granted
+- Check if other applications are using the camera
+- Try refreshing the page and granting permissions again
+
+### Hand Detection Issues
+- Ensure good lighting conditions
+- Keep your hand clearly visible in the camera frame
+- Move slowly for better tracking accuracy
+
+### Performance Issues
+- Close unnecessary browser tabs
+- Ensure your device meets the minimum requirements
+- Try reducing the window size for better performance
+# hand-weld
